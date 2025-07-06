@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EonaCat.Crypto", "EonaCat.Crypto\EonaCat.Crypto.csproj", "{E08BA387-7F8B-4BCA-81CA-039173FF1DA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{D4D451EE-157B-4BCD-92B1-617CF709A35F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E08BA387-7F8B-4BCA-81CA-039173FF1DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E08BA387-7F8B-4BCA-81CA-039173FF1DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E08BA387-7F8B-4BCA-81CA-039173FF1DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E08BA387-7F8B-4BCA-81CA-039173FF1DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4D451EE-157B-4BCD-92B1-617CF709A35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4D451EE-157B-4BCD-92B1-617CF709A35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4D451EE-157B-4BCD-92B1-617CF709A35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4D451EE-157B-4BCD-92B1-617CF709A35F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F85450B-2A48-4486-A2EB-CB5337BB99BF}
+	EndGlobalSection
+EndGlobal

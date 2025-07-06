@@ -1,120 +1,4 @@
-
-# EonaCatCrypto
-
-EonaCatCrypto is a cryptographic library for key derivation and symmetric encryption, using HKDF-SHA512 for secure key expansion and HMAC for authentication.
----
-
-## Features
-
-- Derives fixed-length keys from arbitrary string or byte array inputs using HKDF-SHA512
-- Domain-separated keys for encryption rounds and HMAC authentication
-- Securely clears sensitive data from memory after use
-- Easy to use constructors accepting both string and byte[] keys
-- Encrypt strings, byte arrays and files
-* Optionally: a salt can be provided via the constructor (if not provided a random salt is used)
----
-
-## Usage
-
-### Initialize with a string key
-
-#### Encrypt:
-
-```csharp
-string userKey = "my secure password";
-var crypto = new EonaCatCrypto(userKey);
-var payload = "THIS IS MY SECURE TEXT";
-byte[] plaintext = Encoding.UTF8.GetBytes(payload);
-
-// Encrypt text
-byte[] encrypted = crypto.Encrypt(plaintext);
-Console.WriteLine("Encrypted (base64): " + Convert.ToBase64String(encrypted));
-```
-
-#### Decrypt:
-
-```csharp
-string userKey = "my secure password";
-var crypto = new EonaCatCrypto(userKey);
-byte[] decrypted = crypto.Decrypt(encrypted);
-string decryptedText = Encoding.UTF8.GetString(decrypted);
-Console.WriteLine("Decrypted text length: " + decryptedText.Length);
-```
-
-#### Check if valid:
-```csharp
-if (payload == decryptedText)
-{
-   Console.WriteLine("SUCCESS: Decrypted text matches original!");
-}
-else
-{
-   Console.WriteLine("FAILURE: Decrypted text does NOT match original!");
-}
-```
-
-
-### Initialize with a byte[] key
-
-#### Encrypt:
-
-```csharp
-// Generate a random 128-bytes (1024-bit) key
-byte[] key = new byte[128];
-RandomNumberGeneratorCustom.ComputeHash(key);
-
-// Example for key saving:
-File.WriteAllBytes(key, "key.bin");
-
-var crypto = new EonaCatCrypto(key);
-var payload = "THIS IS MY SECURE TEXT";
-byte[] plaintext = Encoding.UTF8.GetBytes(payload);
-
-// Encrypt text
-byte[] encrypted = crypto.Encrypt(plaintext);
-Console.WriteLine("Encrypted (base64): " + Convert.ToBase64String(encrypted));
-```
-
-#### Decrypt:
-
-```csharp
-byte[] key = "YOUR 128-bytes (1024-bit) KEY ARRAY";
-
-// For example:
-byte[] key = File.ReadAllBytes("key.bin");
-
-var crypto = new EonaCatCrypto(userKey);
-byte[] decrypted = crypto.Decrypt(encrypted);
-string decryptedText = Encoding.UTF8.GetString(decrypted);
-Console.WriteLine("Decrypted text length: " + decryptedText.Length);
-```
-
-#### Check if valid:
-```csharp
-if (payload == decryptedText)
-{
-   Console.WriteLine("SUCCESS: Decrypted text matches original!");
-}
-else
-{
-   Console.WriteLine("FAILURE: Decrypted text does NOT match original!");
-}
-```
-
-## Encrypt a file:
-```csharp
-EonaCatCrypto.EncryptFile(inputFilePath, encryptedFilePath, crypto)
-```
-
-## Decrypt a file:
-```csharp
-EonaCatCrypto.DecryptFile(encryptedFilePath, decryptedFilePath, crypto);
-```
-
-
-## Full example:
-```csharp
-using System.Text;
+﻿using System.Text;
 using EonaCat.Crypto;
 using EonaCat.Crypto.Helpers;
 
@@ -126,7 +10,7 @@ class Program
         byte[] key = new byte[128];
         RandomNumberGeneratorCustom.ComputeHash(key);
 
-        var crypto = new EonaCatCrypto("WERKT DIT GEWOON?"); 
+        var crypto = new EonaCatCrypto("WERKT DIT GEWOON?");
         //var crypto = new EonaCatCrypto(key);
 
         string longLoremIpsum = @"
@@ -203,5 +87,3 @@ End of test string.
         Console.WriteLine("File encryption and decryption completed.");
     }
 }
-```
-
